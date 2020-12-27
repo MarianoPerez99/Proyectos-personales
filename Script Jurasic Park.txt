@@ -1,0 +1,190 @@
+- Base de datos : `Jurasik_Park`
+create database Jurasik_Park;
+-- Selección de  la base de datos
+go
+use Jurasik_Park;
+go
+-- Estructura de tabla para la tabla `escuela`
+--
+CREATE TABLE escuela (
+  Codigo_Escuela smallint NOT NULL,
+  Nombre_Escuela varchar(100) NOT NULL default '',
+  Domicilio_Escuela varchar(200) NOT NULL default '',
+  PRIMARY KEY NONCLUSTERED  (Codigo_Escuela) );
+--
+-- Volcar la base de datos para la tabla `escuela`
+--
+INSERT INTO escuela VALUES (1, 'Escuela Domingo Faustino Sarmiento', 'Soler 219 Capital Federal');
+INSERT INTO escuela VALUES (2, 'Instituto Santa Elena', 'Las Acacias 23 Pinamar');
+INSERT INTO escuela VALUES (3, 'Escuela Nacional Nro 4 Nicolas Avellaneda', 'Salvador y Nicaragua  s/n Córdoba');
+INSERT INTO escuela VALUES (4, 'Escuela Técnica El Tornillo', 'Lomas de Zamora 1 - El Palomar');
+INSERT INTO escuela VALUES (5, 'Escuela de Modelitos Las Lolitas', 'Paseo Alcorta y Las Cañitas - Belgrano R');
+ --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `guia`
+--
+CREATE TABLE guia (
+  Codigo_Guia smallint NOT NULL,
+  Apellido_Guia varchar(60) NOT NULL default '',
+  Nombre_Guia varchar(60) NOT NULL default '',
+  PRIMARY KEY NONCLUSTERED (Codigo_Guia)
+);
+--
+-- Volcar la base de datos para la tabla `guia`
+--
+INSERT INTO guia VALUES (1, 'Lopez Aguado', 'Bernardo');
+INSERT INTO guia VALUES (2, 'Grondona Echague', 'Victor Manuel');
+INSERT INTO guia VALUES (3, 'Morales', 'Victor Hugo');
+INSERT INTO guia VALUES (4, 'Fernandez', 'Eleonora');
+INSERT INTO guia VALUES (5, 'Zaluzi', 'Cristina');
+INSERT INTO guia VALUES (6, 'Fernandez', 'Juan');
+INSERT INTO guia VALUES (7, 'Fernandez', 'Maria');
+ --------------------------------------------------------
+--
+--Estructura de tabla para la tabla `reserva`
+--
+CREATE TABLE reserva (
+  Numero_Reserva int NOT NULL,
+  FECHA_VISITA_RESERVADA smalldatetime NOT NULL default '0000-00-00',
+  Hora_Visita_Reservada smalldatetime NOT NULL default '00:00:00',
+  Codigo_Escuela smallint NOT NULL default 0 CONSTRAINT FK_codigo_escuela1 REFERENCES Escuela,
+  PRIMARY KEY  (Numero_Reserva)
+);
+--
+-- Volcar la base de datos para la tabla `reserva`
+--
+INSERT INTO reserva VALUES (1, '20000410', '08:00:00', 1);
+INSERT INTO reserva VALUES (2, '20010523', '09:00:00', 2);
+INSERT INTO reserva VALUES (3, '20020614', '10:30:00', 1);
+INSERT INTO reserva VALUES (4, '20030510', '11:00:00', 3);
+INSERT INTO reserva VALUES (5, '20030511', '09:00:00', 4);
+INSERT INTO reserva VALUES (6, '20030510', '09:00:00', 2);
+INSERT INTO reserva VALUES (7, '20030510', '14:00:00', 4);
+INSERT INTO reserva VALUES (8, '20030510', '11:00:00', 5);
+INSERT INTO reserva VALUES (9, '20030510', '13:00:00', 1);
+ --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `telefono_escuela`
+--
+CREATE TABLE telefono_escuela (
+  Codigo_Escuela smallint NOT NULL default 0 CONSTRAINT FK_codigo_escuela2 REFERENCES Escuela,
+  Telefono_Escuela varchar(16) NOT NULL default '',
+  PRIMARY KEY  (Codigo_Escuela,Telefono_Escuela)
+);
+--
+-- Volcar la base de datos para la tabla `telefono_escuela`
+--
+INSERT INTO telefono_escuela VALUES (1, '4591-1221');
+INSERT INTO telefono_escuela VALUES (1, '4591-2411');
+INSERT INTO telefono_escuela VALUES (1, '4591-2413');
+INSERT INTO telefono_escuela VALUES (2, '1212-1212');
+INSERT INTO telefono_escuela VALUES (2, '1212-1213');
+INSERT INTO telefono_escuela VALUES (2, '1212-1215');
+INSERT INTO telefono_escuela VALUES (3, '5151-5151');
+INSERT INTO telefono_escuela VALUES (3, '5451-5151');
+INSERT INTO telefono_escuela VALUES (4, '4441-6661');
+INSERT INTO telefono_escuela VALUES (5, '5555-4444');
+ --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `tipo_visita`
+--
+CREATE TABLE tipo_visita (
+  Codigo_Tipo_Visita tinyint NOT NULL,
+  Descripcion_Tipo_Visita varchar(200) NOT NULL default '',
+  Arancel_por_Alumno decimal(8,2) NOT NULL default 0.00,
+  PRIMARY KEY  (Codigo_Tipo_Visita)
+);
+INSERT INTO tipo_visita VALUES (1, 'Parque de Brontosaurios', '10.00');
+INSERT INTO tipo_visita VALUES (2, 'Los Mamuts en Familia', '7.50');
+INSERT INTO tipo_visita VALUES (3, 'Las Tortugas Prehistoricas', '4.00');
+INSERT INTO tipo_visita VALUES (4, 'Laguna de Nahuelito','6.00');
+INSERT INTO tipo_visita VALUES (5, 'Las Cenizas del Meteorito Mortal','8.00');
+INSERT INTO tipo_visita VALUES (6, 'Visita a los Huevos de mama Dino','9.50');
+--
+-- Estructura de tabla para la tabla `grado`
+--
+CREATE TABLE grado (
+  Numero_grado tinyint NOT NULL,
+  Descripcion_grado varchar(60) NOT NULL default '',
+  PRIMARY KEY NONCLUSTERED (Numero_grado)
+);
+--
+-- Volcar la base de datos para la tabla `grado`
+--
+INSERT INTO grado VALUES (1, 'Primer grado');
+INSERT INTO grado VALUES (2, 'Segundo grado');
+INSERT INTO grado VALUES (3, 'Tercer grado');
+INSERT INTO grado VALUES (4, 'Cuarto grado');
+INSERT INTO grado VALUES (5, 'Quinto grado');
+INSERT INTO grado VALUES (6, 'Sexto grado');
+INSERT INTO grado VALUES (7, 'Septimo grado');
+ --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `reserva_tipo_visita`
+--
+CREATE TABLE reserva_tipo_visita (
+  Numero_Reserva int NOT NULL default 0 CONSTRAINT FK_numero_reserva1 REFERENCES Reserva,
+  Codigo_Tipo_Visita tinyint NOT NULL default 0 CONSTRAINT FK_codigo_tipo_visita1 REFERENCES Tipo_Visita,
+  Codigo_Guia smallint  NOT NULL default 0 CONSTRAINT FK_codigo_guia1 REFERENCES Guia,
+  Cantidad_Alumnos_Reservados smallint NOT NULL default 0,
+  Cantidad_Alumnos_Reales smallint NOT NULL default 0,
+  PRIMARY KEY  (Numero_Reserva,Codigo_Tipo_Visita)
+);
+--
+-- Volcar la base de datos para la tabla `reserva_tipo_visita`
+--
+INSERT INTO reserva_tipo_visita VALUES (1, 2, 1, 25, 21);
+INSERT INTO reserva_tipo_visita VALUES (1, 1, 2, 30, 25);
+INSERT INTO reserva_tipo_visita VALUES (1, 3, 3, 110, 89);
+INSERT INTO reserva_tipo_visita VALUES (2, 1, 3, 56, 50);
+INSERT INTO reserva_tipo_visita VALUES (2, 4, 4, 90, 78);
+INSERT INTO reserva_tipo_visita VALUES (2, 3, 5, 100, 53);
+INSERT INTO reserva_tipo_visita VALUES (3, 3, 2, 21, 15);
+INSERT INTO reserva_tipo_visita VALUES (3, 1, 4, 42, 22);
+INSERT INTO reserva_tipo_visita VALUES (3, 2, 1, 54, 46);
+INSERT INTO reserva_tipo_visita VALUES (3, 4, 5, 110, 98);
+INSERT INTO reserva_tipo_visita VALUES (4, 1, 1, 120, 103);
+INSERT INTO reserva_tipo_visita VALUES (4, 2, 3, 130, 125);
+INSERT INTO reserva_tipo_visita VALUES (5, 3, 5, 114, 112);
+INSERT INTO reserva_tipo_visita VALUES (5, 2, 4, 95, 90);
+INSERT INTO reserva_tipo_visita VALUES (6, 5, 5, 65, 52);
+INSERT INTO reserva_tipo_visita VALUES (7, 2, 2, 210, 190);
+INSERT INTO reserva_tipo_visita VALUES (8, 1, 1, 25, 20);
+INSERT INTO reserva_tipo_visita VALUES (8, 2, 3, 32, 26);
+INSERT INTO reserva_tipo_visita VALUES (9, 5, 5, 70, 68);
+ --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `reserva_por_grado`
+--
+CREATE TABLE reserva_por_grado (
+  Numero_Reserva int NOT NULL default 0 CONSTRAINT FK_numero_reserva2 REFERENCES Reserva,
+  Codigo_Tipo_Visita tinyint NOT NULL default 0 CONSTRAINT FK_codigo_tipo_visita2 REFERENCES Tipo_Visita,
+  Numero_grado tinyint NOT NULL default 0 CONSTRAINT FK_numero_grado1 REFERENCES Grado,
+  PRIMARY KEY  (Numero_Reserva,Codigo_Tipo_Visita,Numero_grado)
+);
+--
+-- Volcar la base de datos para la tabla `reserva_por_grdo`
+--
+INSERT INTO reserva_por_grado VALUES (1, 1, 2);
+INSERT INTO reserva_por_grado VALUES (1, 2, 1);
+INSERT INTO reserva_por_grado VALUES (1, 2, 5);
+INSERT INTO reserva_por_grado VALUES (1, 2, 6);
+INSERT INTO reserva_por_grado VALUES (1, 3, 3);
+INSERT INTO reserva_por_grado VALUES (1, 3, 7);
+INSERT INTO reserva_por_grado VALUES (2, 1, 7);
+INSERT INTO reserva_por_grado VALUES (2, 3, 5);
+INSERT INTO reserva_por_grado VALUES (2, 4, 4);
+INSERT INTO reserva_por_grado VALUES (3, 1, 4);
+INSERT INTO reserva_por_grado VALUES (3, 2, 1);
+INSERT INTO reserva_por_grado VALUES (3, 3, 2);
+INSERT INTO reserva_por_grado VALUES (3, 4, 5);
+INSERT INTO reserva_por_grado VALUES (4, 1, 4);
+INSERT INTO reserva_por_grado VALUES (4, 2, 3);
+INSERT INTO reserva_por_grado VALUES (5, 2, 6);
+INSERT INTO reserva_por_grado VALUES (5, 3, 5);
+INSERT INTO reserva_por_grado VALUES (6, 5, 5);
+INSERT INTO reserva_por_grado VALUES (7, 2, 2);
+INSERT INTO reserva_por_grado VALUES (8, 1, 3);
+INSERT INTO reserva_por_grado VALUES (8, 2, 4);
+INSERT INTO reserva_por_grado VALUES (9, 5, 5);
+ --------------------------------------------------------
