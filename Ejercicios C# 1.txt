@@ -1,0 +1,557 @@
+1) Realizar un programa que muestre el mensaje “Hola Mundo”.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hola Mundo");
+            Console.ReadKey();
+        }
+    }
+}
+
+2) Realizar un programa que muestre en la consola su Nombre - Edad- País, y otro que se los pida
+como ingreso al usuario y luego los muestre.
+
+Programa que muestra en la consola su Nombre - Edad- País:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            String Nombre;
+            Byte Edad;
+            String País;
+
+            Nombre = "Pablo";
+            Edad = 36;
+            País = "Argentina";
+
+            Console.WriteLine("Su nombre es " + Nombre + " , su país es " + País + " y su edad es " + Edad + ".");
+            Console.ReadKey();
+        }
+    }
+}
+
+Programa que le pida como ingreso al usuario el Nombre - Edad- País y que luego los muestra:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            String Nombre = "";
+            Byte Edad;
+            String País = "";
+
+            Console.WriteLine("Por favor escriba su nombre");
+            Nombre = Console.ReadLine();
+            Console.WriteLine("Por favor escriba su país");
+            País = Console.ReadLine();
+            Console.WriteLine("Por favor escriba su edad");
+            Edad = Convert.ToByte(Console.ReadLine());
+
+            Console.WriteLine("Su nombre es " + Nombre + " , su país es " + País + " y su edad es " + Edad + ".");
+            Console.ReadKey();
+        }
+    }
+}
+
+3) Realizar un programa que pida al usuario los siguientes datos personales: nombre, apellido, edad
+y carrera; y luego muestre por pantalla los datos ingresados en una sola línea y luego en una
+línea por dato.
+
+Programa que pida al usuario los siguientes datos personales: nombre, apellido, edad
+y carrera; y luego muestre por pantalla los datos ingresados en una sola línea:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            String Nombre = "";
+            String Apellido = "";
+            String Carrera = "";
+            Byte Edad;
+            
+
+            Console.WriteLine("Por favor escriba su nombre");
+            Nombre = Console.ReadLine();
+            Console.WriteLine("Por favor escriba su apellido");
+            Apellido = Console.ReadLine();
+            Console.WriteLine("Por favor escriba su carrera");
+            Carrera = Console.ReadLine();
+            Console.WriteLine("Por favor escriba su edad");
+            Edad = Convert.ToByte(Console.ReadLine());
+
+            Console.WriteLine("Su nombre es " + Nombre + " , su apellido es " + Apellido + " , su carrera es " + Carrera + " y su edad es " + Edad + ".");
+            Console.ReadKey();
+
+
+Mostrando por pantalla los datos ingresados en una linea por dato:
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            String Nombre = "";
+            Console.WriteLine("Por favor escriba su nombre");
+            Nombre = Console.ReadLine();
+            String Apellido = "";
+            Console.WriteLine("Por favor escriba su apellido");
+            Apellido = Console.ReadLine();
+            String Carrera = "";
+            Console.WriteLine("Por favor escriba su carrera");
+            Carrera = Console.ReadLine();
+            Byte Edad;
+            Console.WriteLine("Por favor escriba su edad");
+            Edad = Convert.ToByte(Console.ReadLine());
+
+            Console.WriteLine("su nombre es " + Nombre  );
+            Console.WriteLine("su apellido es " + Apellido );
+            Console.WriteLine("su carrera es " + Carrera );
+            Console.WriteLine("su edad es " + Edad + ".");
+            Console.ReadKey();
+        }
+    }
+} 
+
+
+4) a. Realizar un programa que pida al usuario la cantidad de materias de la carrera de Lic. en
+Sistemas de Información de las Organizaciones, la cantidad de materias aprobadas y muestre en
+un cuadro de mensajes la cantidad de materias faltantes para recibirse. (Omitir todo tipo de
+validaciones.).
+b. Modificar el programa anterior para que el usuario no deba ingresar la cantidad de materias
+total de la carrera, sino que esta se incluya en el mismo como una constante. (32 Materias)
+
+
+a. Realizar un programa que pida al usuario la cantidad de materias de la carrera de Lic. en
+Sistemas de Información de las Organizaciones, la cantidad de materias aprobadas y muestre en
+un cuadro de mensajes la cantidad de materias faltantes para recibirse. (Omitir todo tipo de
+validaciones.).
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Byte Materias;
+            Byte Aprobadas;
+
+            Console.WriteLine("Por favor escriba la cantidad de materias de la carrera de Lic. en S. de I. de las Org.");
+            Materias = Convert.ToByte(Console.ReadLine());
+            Console.WriteLine("Por favor escriba la cantidad de materias que aprobó de la carrera de Lic. en S. de I. de las Org.");
+            Aprobadas = Convert.ToByte(Console.ReadLine());
+
+            int resultado= 0;
+            resultado = Materias - Aprobadas;
+
+            Console.WriteLine("La cantidad de materias faltantes para recibirse es de " + resultado);
+            Console.ReadKey();
+
+
+
+        }
+    }
+}
+
+
+b. Modificar el programa anterior para que el usuario no deba ingresar la cantidad de materias
+total de la carrera, sino que esta se incluya en el mismo como una constante. (32 Materias)
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Byte Materias = 32;
+            Byte Aprobadas;
+
+            
+            Console.WriteLine("Por favor escriba la cantidad de materias que aprobó de la carrera de Lic. en S. de I. de las Org.");
+            Aprobadas = Convert.ToByte(Console.ReadLine());
+
+            int resultado= 0;
+            resultado = 32 - Aprobadas;
+
+            Console.WriteLine("La cantidad de materias faltantes para recibirse es de " + resultado);
+            Console.ReadKey();
+
+
+
+        }
+    }
+}
+
+
+5) Realizar un programa que permita ingresar 4 números y los muestre en el orden inverso al
+ingresado.
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Decimal A;
+            Decimal B;
+            Decimal C;
+            Decimal D;
+
+            Console.WriteLine("Por favor escriba el primer número");
+            A = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Por favor escriba el segundo número");
+            B = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Por favor escriba el tercer número");
+            C = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Por favor escriba el cuarto número");
+            D = Convert.ToDecimal(Console.ReadLine());
+
+            Console.WriteLine("el cuarto número es " + D + " , el tercer número es " + C + " , el segundo número es " + B + " y el primer número es " + A + "." );
+            Console.ReadKey();
+
+
+        }
+    }
+}
+
+
+6) Realizar un programa que permita ingresar el alto y la base de un triángulo y muestre su área.
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Decimal Base;
+            Decimal Altura;
+
+
+            Console.WriteLine("Por favor ingrese lo que mide la base del triángulo");
+            Base = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese lo que mide la altura del triángulo");
+            Altura = Convert.ToDecimal(Console.ReadLine());
+
+            Decimal resultado = 0;
+            resultado = Base * Altura / 2;
+            Console.WriteLine("El area del triángulo es " + resultado);
+            Console.ReadKey();
+
+
+
+        }
+    }
+}
+
+
+7) Realizar un programa que pida al usuario el valor de los dos lados y luego calcule y muestre el
+perímetro y el área de un rectángulo.
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Decimal Base;
+            Decimal Altura;
+
+
+            Console.WriteLine("Por favor ingrese lo que mide la base del rectángulo");
+            Base = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese lo que mide la altura del rectángulo");
+            Altura = Convert.ToDecimal(Console.ReadLine());
+
+            Decimal resultado1 = 0;
+            Decimal resultado2 = 0;
+            resultado1 = 2 * Base + 2 * Altura;
+            resultado2 = Base * Altura;
+            Console.WriteLine("El perímetro del rectángulo es " + resultado1);
+            Console.WriteLine("El área del rectángulo es " + resultado2);
+            Console.ReadKey();
+
+
+
+        }
+    }
+}
+
+
+8) Realizar un programa que solicite al alumno el ingreso del promedio de la carrera, las notas de
+los dos parciales teóricos y de los dos parciales prácticos de la materia actual y luego muestre el
+promedio de la teoría, el promedio de la práctica, el promedio de la materia (promedio de las
+cuatro notas) y el promedio general de la carrera.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Decimal Carrera;
+            Decimal Teorico1;
+            Decimal Teorico2;
+            Decimal Practico1;
+            Decimal Practico2;
+            
+
+            Console.WriteLine("Por favor ingrese el promedio de la carrera");
+            Carrera = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese la nota del primer parcial teórico de la materia TEORÍA DE LOS LENGUAJES Y ALGORITMOS");
+            Teorico1 = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese la nota del segundo parcial teórico de la materia TEORÍA DE LOS LENGUAJES Y ALGORITMOS");
+            Teorico2 = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese la nota del primer parcial práctico de la materia TEORÍA DE LOS LENGUAJES Y ALGORITMOS");
+            Practico1 = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese la nota del segundo parcial práctico de la materia TEORÍA DE LOS LENGUAJES Y ALGORITMOS");
+            Practico2 = Convert.ToDecimal(Console.ReadLine());
+
+            Decimal Promedio1;
+            Decimal Promedio2;
+            Decimal Promedio3;
+            Decimal Promedio4;
+            Promedio1 = (Teorico1 + Teorico2) / 2;
+            Promedio2 = (Practico1 + Practico2) / 2;
+            Promedio3 = (Teorico1 + Teorico2 + Practico1 + Practico2) / 4;
+            Promedio4 = (Carrera + Teorico1 + Teorico2 + Practico1 + Practico2) / 5;
+            Console.WriteLine("El promedio de la teoría es " + Promedio1);
+            Console.WriteLine("El promedio de la práctica es " + Promedio2);
+            Console.WriteLine("El promedio de la materia es " + Promedio3);
+            Console.WriteLine("El promedio general de la carrera es " + Promedio4);
+            Console.ReadKey();
+
+
+
+        }
+    }
+}
+
+
+9) Realice un programa que permita sumar 4 números ingresados usando solo una variable
+numérica.
+
+(Suponiendo que los números ya vienen dados)
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int resultado = 0;
+            resultado = 20 + 7 + 2 + 3;
+            Console.WriteLine("El resultado de la suma es " + resultado);
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+(Ahora suponiendo que el programa pida que los números los ingrese el usuario, LA ÚNICA VARIABLE NUMÉRICA SERÍA "SUMA)
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Decimal A;
+            Decimal B;
+            Decimal C;
+            Decimal D;
+            Console.WriteLine("Por favor ingrese el primer número");
+            A = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese el segundo número");
+            B = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese el tercer número");
+            C = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese cuarto número");
+            D = Convert.ToDecimal(Console.ReadLine());
+
+            Decimal Suma;
+            Suma = A + B + C + D;
+            Console.WriteLine("El resultado de la suma es " + Suma);
+            Console.ReadKey();
+        }
+    }
+}
+
+
+10) Realice un programa que permita ingresar: Cantidad de materias aprobadas, Cantidad de
+materias rendidas, Promedio y calcule el siguiente ranking:
+
+Ranking = (Mat Aprob./Mat rendidas)X100+Mat Aprob.X3+Promx3
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Byte Aprobadas;
+            Byte Rendidas;
+            Decimal Promedio;
+            
+            Console.WriteLine("Por favor ingrese la cantidad de materias aprobadas");
+            Aprobadas = Convert.ToByte(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese la cantidad de materias rendidas");
+            Rendidas = Convert.ToByte(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese el promedio");
+            Promedio = Convert.ToDecimal(Console.ReadLine());
+           
+            Decimal Ranking;
+            Ranking = ((Aprobadas/Rendidas)*100 + Aprobadas*3 + Promedio*3);
+            Console.WriteLine("El ranking del estudiante es " + Ranking);
+            Console.ReadKey();
+        }
+    }
+}
+
+11) Realice un programa que tenga almacenado el precio de tres productos, luego pregunte al
+usuario la cantidad comprada de cada uno de ellos, y luego devuelva el importe total a pagar.
+
+(Tomando los precios de los productos 1,2 y 3 como $300, $500 y $800 respectivamente)
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Decimal Precio1 = 300;
+            Decimal Precio2 = 500;
+            Decimal Precio3 = 800;
+
+            Byte Unidadesdelproducto1;
+            Byte Unidadesdelproducto2;
+            Byte Unidadesdelproducto3;
+
+            Console.WriteLine("Por favor ingrese la cantidad de unidades compradas del producto 1");
+            Unidadesdelproducto1 = Convert.ToByte(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese la cantidad unidades compradas del producto 2");
+            Unidadesdelproducto2 = Convert.ToByte(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese la cantidad unidades compradas del producto 3");
+            Unidadesdelproducto3 = Convert.ToByte(Console.ReadLine());
+           
+            Decimal Importe = 0;
+            Importe = Unidadesdelproducto1*300 + Unidadesdelproducto2*500 + Unidadesdelproducto3*800;
+            Console.WriteLine("El importe total a pagar es " + Importe);
+            Console.ReadKey();
+        }
+    }
+}
+
+
