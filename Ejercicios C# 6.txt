@@ -1,0 +1,67 @@
+ class Alumno
+    {
+        List<int> Registro = new List<int>();
+
+        public void Ingreso()
+        {
+            int Numero;
+            string Condicion;
+
+            do
+            {
+                Console.WriteLine("Por favor ingrese Nro de registro: ");
+                Registro.Add(Numero = Convert.ToInt32(Console.ReadLine()));
+
+                Console.WriteLine("¿Desea seguir agregando registros S/N?");
+                Condicion = Console.ReadLine();
+
+            } while (Condicion == "S");
+
+            string lista = "";
+            Console.WriteLine("Los registros cargados son: ");
+
+            foreach (int registros in Registro)
+            {
+                lista += registros + System.Environment.NewLine;
+            }
+            Console.WriteLine(lista);
+        }
+        
+        public void ContarRegistros()
+        {
+            Console.WriteLine("Cantidad de registros {0}: ", Registro.Count);
+        }
+
+        public void Eliminar(int indice) //le envio una variable porque el main program pongo el indice que quiero elimnar
+        {
+            Registro.RemoveAt(indice);
+            Console.WriteLine("Se eliminó el registro {0}", indice);
+        }
+
+        
+        public void ElimnarNumero()
+        {
+            //5) Realizar un procedimiento que le solicite al usuario ingresar un Nro. de Registro, para luego eliminarlo.
+            //En ambos casos, ya sea exitoso o no, se deberá mostrar un mensaje indicando la situación.
+
+            int numero;
+
+            Console.WriteLine("Por favor ingrese Nro. de registro: ");
+            Registro.Add(numero = Convert.ToInt32(Console.ReadLine()));
+
+            string lista = "";
+            Console.WriteLine("Los registros cargados son: ");
+
+            foreach (int registros in Registro)
+            {
+                lista += registros + System.Environment.NewLine;
+            }
+            Console.WriteLine(lista);
+
+            Registro.Remove(numero);
+
+            Console.WriteLine("Se eliminó el registro: {0} ¡Con éxito!", numero);
+
+        }
+
+    }

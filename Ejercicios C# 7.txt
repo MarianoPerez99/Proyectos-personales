@@ -1,0 +1,193 @@
+Problema 1:
+
+Utilizando la clase Alumno del punto 6 de la guía 6, realizar un formulario y en el mismo, un control del tipo TextBox, 
+junto con su label para cada propiedad de esa clase.
+
+Hice el FORMULARIO EN OTRO ARCHIVO.
+
+Problema 2:
+
+Agregar un botón BtnAgregar que, al hacerle clic, 
+agregue un registro a una lista Alumnos, con el formato del punto 9 de la guía 6, 
+validando que ningún dato este vacío y MateriasAprobadas, MateriasRestantes y Promedio sean del tipo correspondiente y 
+positivos. El promedio debe ser entre 1 y 10.
+
+private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            // Valido que el REGISTRO no esté vacío.
+            if (string.IsNullOrEmpty(TxRegistro.Text))
+            {
+                MessageBox.Show("El número de registro no debe estar vacío");
+            }
+            else
+            {
+                // No debe mostrar mensaje.
+            }
+            // Valido que el NOMBRE no esté vacío.
+            if (string.IsNullOrEmpty(TxNombre.Text))
+            {
+                MessageBox.Show("El nombre no debe estar vacío");
+            }
+            else
+            {
+                // No debe mostrar mensaje.
+            }
+            // Valido que el APELLIDO no esté vacío.
+            if (string.IsNullOrEmpty(TxApellido.Text))
+            {
+                MessageBox.Show("El apellido no debe estar vacío");
+            }
+            else
+            {
+                // No debe mostrar mensaje.
+            }
+            // Valido que la CANTIDAD DE MATERIAS APROBADAS sea POSITIVA.
+            byte MateriasAprobadas = TxMAp.Text;
+            if (MateriasAprobadas <= 0)
+            {
+                MessageBox.Show("La cantidad de materias aprobadas debe ser positiva");
+            }
+            else
+            {
+
+                // No debe mostrar mensaje.
+            }
+            // Valido que la CANTIDAD DE MATERIAS RESTANTES sea POSITIVA.
+            byte MateriasRestantes = TxMRes.Text;
+            if (MateriasRestantes <= 0)
+            {
+                MessageBox.Show("La cantidad de materias restantes debe ser positiva");
+            }
+            else
+            {
+                // No debe mostrar mensaje.
+            }
+            // Valido que el PROMEDIO sea POSITIVO.
+            float Promedio = TxPromedio.Text;
+            if (Promedio <= 0)
+            {
+                MessageBox.Show("El promedio debe ser positivo");
+            }
+            else if (Promedio > 10)
+            {
+                MessageBox.Show("El promedio está fuera de rango");
+            }
+            else
+            {
+                // No debe mostrar mensaje.
+            }
+            // Valido que el REGISTRO que se quiere agregar NO ESTÉ VACÍO.
+            if (string.IsNullOrEmpty(TxRegistro1.Text))
+            {
+                MessageBox.Show("El número de registro a agregar está vacío");
+            }
+            else
+            {
+                Alumnos.Items.Add(TxRegistro1.Text);
+                TxRegistro1.Clear();
+            }
+        }
+
+Problema 3:
+
+Agregar un botón BtnMostrarDatos, que muestre los datos de todos los alumnos de la lista Alumnos del punto 2.
+El formato debe ser:
+Nombre - Apellido - MateriasAprobadas – MateriasRestantes - Promedio
+
+
+ // Mostrando solamente el código del botón que hay que agregar.
+        private void BtnMostrarDatos_Click(object sender, EventArgs e)
+        {
+            BtnMostrarDatos= MessageBox.Show("Nombre:{0}" "-" + System.Environment.NewLine + "Apellido:{2}" "-" + System.Environment.NewLine + "MateriasAprobadas:{3}" "-" + System.Environment.NewLine + "MateriasRestantes:{4}" "-" + System.Environment.NewLine + "Promedio:{5}" "-" + System.Environment.NewLine, Nombre, Apellido, MateriasAprobadas, MateriasRestantes, Promedio);
+        }
+
+
+Problema 4:
+
+Agregar un TextBox TxtRegistroBuscar y un botón BtnBuscarAlumno, que, al hacerle clic se encargue de buscar el alumno 
+ingresado en TxtRegistroBuscar en la lista Alumnos del punto 2. 
+En caso de no encontrarlo, se deberá mostar un mensaje con dicho aviso.
+
+  // Mostrando solamente el código de lo pedido en este problema.
+        private void BtnBuscarAlumno_Click(object sender, EventArgs e)
+        {
+            if(TxtRegistroBuscar==Alumnos)
+            {
+                //No muestro mensaje porque si el Estudiante es encontrado el enunciado no dice que debe mostrar nada.
+            }
+            else
+            {
+                BtnBuscarAlumno = MessageBox.Show("No se encontró el estudiante buscado");
+            }
+        }
+
+
+Problema 5:
+
+Agregar un ListBox LstAlumnos, 
+en el cual se deben ir agregando en el evento clic del BtnAgregar del punto 2, 
+los números de registro de los alumnos. Además se debe agregar un botón BtnEliminar, 
+que al hacerle clic se debe eliminar el alumno seleccionado, tanto del ListBox como de la lista dinámica.
+ Se debe validar previamente que el ListBox tenga al menos 1 ítem y el mismo este seleccionado.
+
+       private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(TxRegistro.Text))
+            {
+                MessageBox.Show("El registro a agregar está vacío");
+            }
+            else
+            {
+                LstAlumnos.Items.Add("TxRegistro.Text");
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            int IndiceSeleccionado = LstAlumnos.SelectedIndex;
+
+            if (IndiceSeleccionado == -1)
+            {
+                MessageBox.Show("No hay ningún registro seleccionado");
+            }
+            else
+            {
+                LstAlumnos.Items.RemoveAt(IndiceSeleccionado);
+                // Ahora lo elimino de la lista dinámica Alumnos.
+                Alumnos.Items.RemoveAt(IndiceSeleccionado);
+            }
+        }
+
+
+Problema 6:
+
+Agregar en un GroupBox (GbDistinciones), 3 RadioButton, RbDistincion1, RbDistincion2, RbDistincion3, y 
+un botón BtnMostrarDistinciones. 
+Al hacer clic en ese botón, lo que se debe hacer es listar en un MessageBox los alumnos (números de registro) que 
+tienen promedio de la distinción seleccionada. 
+Si no tiene ninguna seleccionada se debe notificar mediante un mensaje dicha situación.
+
+RbDistincion1 -> promedio entre 9 y 10.
+RbDistincion2 -> promedio entre 8 y 9.
+RbDistincion3 -> promedio entre 7 y 8.
+
+   private void BtnMostrarDistinciones_Click(object sender, EventArgs e)
+        {
+            RBDistincion1 = Promedio >= 9;
+            RBDistincion1 = Promedio <= 10;
+            RBDistincion2 = Promedio >= 8;
+            RBDistincion2 = Promedio <= 9;
+            RBDistincion3 = Promedio >= 7;
+            RBDistincion3 = Promedio <= 8;
+
+            if (GBDistinciones== RBDistincion1 || GBDistinciones == RBDistincion2 || GBDistinciones == RBDistincion3)
+            {
+                MessageBox.Show("Registro");
+            }
+            else
+            {
+                MessageBox.Show("Usted no seleccionó ninguna distinción");
+            }
+
+        }
+

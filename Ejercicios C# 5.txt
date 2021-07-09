@@ -1,0 +1,252 @@
+Problema 1:
+
+Realizar una clase Persona, que posea las siguientes propiedades:
+DNI -> int
+Nombre -> string
+Apellido -> string
+FechaNacimiento -> DateTime
+Edad -> byte
+Genero -> string
+
+ class Persona
+    {
+        // Coloco dentro de la clase persona las propiedades pedidas que son como VARIABLES LOCALES y deben ser de tipo PRIVADO.
+        private int DNI;
+        private string Nombre;
+        private string Apellido;
+        private DateTime FechaNacimiento;
+        private byte Edad;
+        private string Genero;
+
+    }
+
+
+Problema 2:
+
+Realizar 2 constructores de la clase, uno sin parámetros, y otro con todos los parámetros.
+
+ 
+        // Realizo el CONSTRUCTOR SIN PARÁMETROS 
+        public Persona()
+        {
+
+        }
+        // Realizo el CONSTRUCTOR CON TODOS LOS PARÁMETROS
+        public Persona(int D, string N, string A, DateTime F, byte E, string G)
+        {
+            // No llamo a los parámetros de igual forma porque se dijo en clase si los llamábamos igual nos íbamos a CONFUNDIR.
+            DNI = D;
+            Nombre = N;
+            Apellido = A;
+            FechaNacimiento = F;
+            Edad = E;
+            Genero = G;
+        }
+
+
+Problema 3:
+
+Realizar el procedimiento ToString() que sobrescriba el por defecto de la clase Persona. 
+Los datos deberán estar separados por guiones medios. 
+La FechaNacimiento deberá estar en formato dd/MM/yyyy.
+
+  // Para realizar el procedimiento utilizo la palabra reservada OVERRIDE que es SOBRESCRIBIR
+        public override string ToString()
+        {
+            return DNI + System.Environment.NewLine + Nombre + System.Environment.NewLine + Apellido + System.Environment.NewLine + FechaNacimiento + System.Environment.NewLine + Edad + System.Environment.NewLine + Genero + System.Environment.NewLine;
+        }
+
+
+Problema 4:
+
+Realizar una función CrearPersona, que instancie la clase Persona del punto 1) y 
+la cargue con datos que deben ser solicitados al usuario. 
+Los mismos deben ser validados, siendo los string no vacíos, la fecha del tipo indicado y 
+menor al día de hoy, y el DNI y Edad numérico y positivo. La función debe devolver el objeto Persona.
+
+public string CrearPersona(ref Nombre, ref Apellido, ref DateTime FechaNacimiento, ref Edad, ref DNI, ref Genero)
+    {
+       
+        string Documento = "";
+        int Salida;
+        string Años = "";
+        int Salida1;
+        string Nacimiento = "";
+        // Pido el ingreso del NOMBRE y lo valido.
+
+        do
+        {
+            Flag = false;
+            Console.WriteLine("Por favor ingrese su nombre");
+            Nombre = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(Nombre))
+            {
+                Console.WriteLine("Usted debe ingresar un nombre");
+            }
+            else
+            {
+                Flag = true;
+            }
+        } while (Flag == false);
+
+        // Pido el ingreso del APELLIDO y lo valido.
+
+        do
+        {
+            Flag = false;
+            Console.WriteLine("Por favor ingrese su apellido");
+            Apellido = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(Apellido))
+            {
+                Console.WriteLine("Usted debe ingresar un apellido");
+            }
+            else
+            {
+                Flag = true;
+            }
+        } while (Flag == false);
+
+        // Pido el ingreso del GÉNERO y lo valido.
+
+        do
+        {
+            Flag = false;
+            Console.WriteLine("Por favor ingrese su género");
+            Genero = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(Genero))
+            {
+                Console.WriteLine("Usted debe ingresar un genero");
+            }
+            else
+            {
+                Flag = true;
+            }
+        } while (Flag == false);
+
+        // Pido el ingreso del DNI y lo valido.
+
+        do
+        {
+            
+            Console.WriteLine("Por favor ingrese su DNI");
+            Documento = Console.ReadLine();
+
+            if (!int.TryParse(Documento, out DNI)
+            {
+                Console.WriteLine("Usted debe ingresar un dato numérico");
+            }
+            else if (DNI<= 0)
+            {
+                Console.WriteLine("Usted debe ingresar un número positivo");
+            }
+            else
+            {
+                Flag = true;
+            }
+        } while (Flag == false);
+
+        // Pido el ingreso de la EDAD y la valido.
+
+        do
+        {
+            Flag = false;
+            
+            Console.WriteLine("Por favor ingrese su edad");
+            Años = Console.ReadLine();
+
+            if (!int.TryParse(Años, out Edad)
+            {
+                Console.WriteLine("Usted debe ingresar un dato numérico");
+            }
+            else if (Edad <= 0)
+            {
+                Console.WriteLine("Usted debe ingresar un número positivo");
+            }
+            else
+            {
+                Flag = true;
+            }
+        } while (Flag == false);
+
+        // Pido el ingreso de la FECHA DE NAC. y la valido.
+
+        do
+        {
+            Flag = false;
+
+            Console.WriteLine("Por favor ingrese su fecha de nacimiento");
+            Nacimiento = Console.ReadLine();
+
+            if (!DateTime.TryParse(Nacimiento, out FechaNacimiento)
+            {
+                Console.WriteLine("El dato ingresado no es una fecha de nacimiento");
+            }
+            else if (FechaNacimiento<DateTime.Now)
+            {
+                Console.WriteLine("La fecha ingresada debe ser menor al día de hoy");
+            }
+            else
+            {
+                Flag = true;
+            }
+        } while (Flag == false);
+
+        return Persona;
+    } 
+
+
+Problema 5:
+
+Realizar 2 métodos en la clase Persona:
+• Saludar: deberá escribir por consola el saludo “Hola Mundo! Mi nombre completo es {Nombre} {Apellido} y tengo {Edad} años.”
+• CumplirAños: deberá sumar 1 año la edad actual de la persona.
+
+ // Realizo el MÉTODO SALUDAR.
+
+        public void Saludar()
+        {
+            Console.WriteLine("Hola Mundo! Mi nombre completo es {Nombre} {Apellido} y tengo {Edad} años");
+        }
+
+ // Realizo el MÉTODO CumplirAños.
+
+        public void CumplirAños()
+        {
+            Edad+1;
+        }
+
+
+Problema 6:
+
+Realizar un procedimiento MostrarDatos que se encargue de mostrar por consola los datos del objeto instanciado en el 
+punto 4), utilizando el ToString() del punto 3).
+
+public void MostrarDatos()
+    {
+        return String.Format(CrearPersona);
+    }
+
+Problema 7:
+
+Realizar una función booleana esMayorDeEdad en la clase Persona, que retornara true o false, 
+dependiendo si la persona es o no mayor de 18 años.
+
+public bool esMayorDeEdad(Edad)
+    {
+        Flag = false;
+
+        if (Edad<=18)
+        {
+            // suponiendo que si es menor a 18 años deba devolver false.
+            Flag = false;
+        }
+        else if (Edad > 18)
+        {
+            // suponiendo que si es mayor a 18 años deba devolver true.
+            Flag = true;
+        }
+        return Flag;
+    }

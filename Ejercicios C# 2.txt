@@ -1,0 +1,910 @@
+1) Se pide codificar un programa que requiera el ingreso de un número por parte del 
+Usuario, y que el Sistema le informe si se trata de un número mayor o menor a cero.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            decimal Numero;
+            String Tipo = "";
+            Console.WriteLine("Por favor escriba un número");
+            Numero = Convert.ToDecimal(Console.ReadLine());
+            if (Numero > 0)
+
+            {
+                Tipo = "mayor que cero";
+            }
+            else if (Numero<0)
+            {
+                Tipo = "menor que cero";
+            }
+
+            Console.WriteLine("El numero ingresado es " + Tipo);
+            Console.ReadKey();
+
+        }
+    }
+}
+
+2) Romina tiene un kiosco, donde debe registrar las ventas que realice. Codificar un 
+programa que se limite a cargar montos numéricos hasta que el Usuario desee salir del 
+Sistema.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+
+                Byte Monto;
+                String Condición;
+
+
+            do
+            {
+                Console.WriteLine("Ingrese el monto de una venta");
+                Monto = Convert.ToByte(Console.ReadLine());
+
+                Console.Write("¿Desea volver a ingresar el monto de una venta (S/N)");
+                Condición = Console.ReadLine();
+
+            } while (Condición == "S");
+
+            
+        }
+    }
+}
+
+3) Se pide realizar un programa que solamente se limite a dar a elegir al Usuario
+ permanecer o no en el Sistema, dependiendo de la elección de este mismo: 
+• Si el Usuario elige la letra “S”, el Sistema sigue funcionando. • Si el Usuario 
+selecciona la letra “N”, saldrá del Sistema.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            String Condición;
+
+
+            do
+            {
+                Console.WriteLine("¿Desea permanecer en el sistema? (S/N)");
+                Condición = Console.ReadLine();
+
+            } while (Condición == "S");
+
+            
+        }
+    }
+}
+
+
+4) Se sabe que un Usuario demora de su casa a la facultad, dependiendo del medio de 
+transporte que elija, los siguientes tiempos: 
+• Colectivo: 30 minutos • Subterráneo: 15 minutos • Bicicleta: 45 minutos.
+Realizar un programa que permita elegir al Usuario un menú con cada medio de transporte 
+y, realizada la elección, muestre el medio de transporte elegido y su tiempo de viaje.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            String Elección;
+            String Expresión;
+
+            Console.WriteLine("Elija un medio de transporte (colectivo, subterraneo o bicicleta)");
+            Elección = Console.ReadLine();
+            Console.ReadKey();
+
+            
+
+            switch (Elección)
+            {
+                case "colectivo":
+                    {
+
+                        Expresión = "y el tiempo de viaje es de 30 minutos";
+                        break;
+                    }
+                case "subterraneo":
+                    {
+
+                        Expresión = "y el tiempo de viaje es de 15 minutos";
+                        break;
+                    }
+                case "bicicleta":
+                    {
+                        Expresión = "y el tiempo de viaje es de 45 minutos";
+                        break;
+                    }
+                default:
+                    Expresión = "pero no se puede estimar el tiempo de duración del viaje";
+                    break;
+            }
+            Console.Write("El medio de transporte elegido es " + Elección + "  " + Expresión + ".");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+5) Se le requiere construir un programa que despliegue un menú con las siguientes 
+características: 1 - Altas 2 - Bajas 3 - Modificaciones 4 – Salir. Una vez realizada la
+ selección por el usuario el programa deberá mostrar una leyenda por pantalla que
+ exprese la elección efectuada o en su defecto mostrar la leyenda “Dato erróneo” 
+a. Resolver usando IF b. Resolver usando switch
+
+Utilizando if:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Byte Elección;
+            String Expresión = "";
+
+            Console.WriteLine("Elija una opción: 1) altas 2) bajas 3) Modificaciones 4) Salir");
+            Elección = Convert.ToByte(Console.ReadLine());
+            Console.ReadKey();
+
+
+
+            if (Elección = 1) 
+            {
+
+                Expresión = "Altas";
+
+            }
+            else if (Elección = 2)
+            {
+
+                Expresión = "Bajas";
+            }         
+            else if (Elección = 3)
+            {
+                Expresión = "Modificaciones";
+                     
+            }
+            else if (Elección = 4)
+            {
+                Expresión = "Salir";
+                       
+            }
+            else if (Elección = 5)
+            { 
+                Expresión = "Dato erróneo";
+                    
+            }
+            Console.Write(" " + Expresión);
+            Console.ReadKey();
+
+        }
+    }
+}
+
+Utilizando switch:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int Elección;
+            String Expresión;
+
+            Console.WriteLine("Elija una opción: 1) altas 2) bajas 3) Modificaciones 4) Salir");
+            Elección = Convert.ToInt16(Console.ReadLine());
+            Console.ReadKey();
+
+            
+
+            switch (Elección)
+            {
+                case 1:
+                    {
+
+                        Expresión = "Altas";
+                        break;
+                    }
+                case 2:
+                    {
+
+                        Expresión = "Bajas";
+                        break;
+                    }
+                case 3:
+                    {
+                        Expresión = "Modificaciones";
+                        break;
+                    }
+                case 4:
+                    {
+                        Expresión = "Salir";
+                        break;
+                    }
+                default:
+                    Expresión = "Dato erróneo";
+                    break;
+            }
+            Console.Write(" " + Expresión);
+            Console.ReadKey();
+
+        }
+    }
+}
+
+6) Hacer un programa que pida al operador que ingrese dos números e informar si los números ingresados son iguales o distintos.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            byte Numero1;
+            byte Numero2;
+            String Expresion = "";
+
+            Console.WriteLine("Por favor escriba un primer número");
+            Numero1 = Convert.ToByte(Console.ReadLine());
+            Console.WriteLine("Por favor escriba un segundo número");
+            Numero2 = Convert.ToByte(Console.ReadLine());
+            if (Numero1 == Numero2)
+            {
+                Expresion = "Iguales";
+                
+            }
+            else if (Numero1 != Numero2) 
+            {
+                Expresion = "Distintos";
+                
+            }
+            Console.WriteLine("Los números ingresados son " + Expresion);
+            Console.ReadKey();
+
+
+        }
+    }
+}
+
+7) Pedir al usuario que ingrese el tamaño en cm de los lados de un triángulo. 
+Según los datos ingresados informar si se trata de un triángulo escaleno, isósceles 
+o equilátero. 
+Valide que cada lado sea superior a 0.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            decimal Lado1;
+            Console.WriteLine("Por favor escriba la medida de uno de los lados de un triángulo");
+            Lado1=Convert.ToDecimal(Console.ReadLine());
+            decimal Lado2;
+            Console.WriteLine("Por favor escriba la medida de uno de los lados de un triángulo");
+            Lado2 = Convert.ToDecimal(Console.ReadLine());
+            decimal Lado3;
+            Console.WriteLine("Por favor escriba la medida de uno de los lados de un triángulo");
+            Lado3 = Convert.ToDecimal(Console.ReadLine());
+            string Tipo = "";
+            string Posibilidad = "";
+            if (Lado1>0 && Lado2>0 && Lado3>0 && Lado1 == Lado2 && Lado1==Lado3)
+            {
+                Tipo = "Equilátero";
+            }
+            else if (Lado1 > 0 && Lado2 > 0 && Lado3 > 0 && Lado1 == Lado2 && Lado2 != Lado3)
+            {
+                Tipo = "Isóceles";
+            }
+            else if (Lado1 > 0 && Lado2 > 0 && Lado3 > 0 && Lado1 != Lado2 && Lado1!=Lado3)
+            {
+                Tipo = "Escaleno";
+            }
+            else if (Lado1 < 0 || Lado2 < 0 || Lado3 < 0 || Lado1 == 0 )
+            {
+                Posibilidad = "fuera de rango";
+                Console.WriteLine("Hay por lo menos un lado que tiene un valor " + Posibilidad);
+                Console.ReadKey();
+            }
+            Console.WriteLine("El triángulo es " + Tipo);
+            Console.ReadKey();
+            
+        }
+    }
+}
+
+8) Realizar un programa que pida al usuario que ingrese números. Cuando ingrese el 
+número 0 el programa debe terminar y mostrar los siguientes datos:
+• Cantidad de números ingresados. [ Contador ]
+• Sumatoria de los números ingresados. [ Acumulador ]
+• Promedio de los números ingresados
+• Valor máximo y mínimo de los números ingresados.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float Numero;
+            float Contador = 0;
+            float Acumulador = 0;
+            float Promedio;
+            do
+            {
+                Console.WriteLine("Por favor ingrese un número");
+                Numero = Convert.ToSingle(Console.ReadLine());
+                Contador ++;
+                Acumulador  +=  Numero;
+                Promedio = (Acumulador / Contador);
+                
+            } while (Numero != 0);
+
+            Console.WriteLine("La cantidad de números ingresada es de "+ Contador + ", La sumatoria de los números ingresados es igual a " + Acumulador + " y el promedio de los números ingresados es igual a " + Promedio);
+            Console.ReadKey();
+
+        }
+    }
+}
+
+9) Realice un programa que permita el ingreso de un número entero menor a 100 y que
+ indique si este es un número primo. [ Validación ]
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int Numero1;
+            int Numero2;
+            int Numero3;
+            Numero3 = 0;
+            Console.WriteLine("Por favor ingrese un número entero menor que 100");
+            Numero1 = Convert.ToInt32(Console.ReadLine());
+
+            if (Numero1 >= 100)
+            {
+                Console.Write("Numero fuera de rango");
+                Console.ReadKey();
+            }
+            else if (Numero1<100)
+            {
+                for (Numero2 = 1; Numero2 <= Numero1; Numero2++)
+                {
+
+
+                    if ((Numero1 % Numero2) == 0)
+                    {
+                        Numero3 = (Numero3 + 1);
+                    }
+
+                }
+                    if (Numero3 > 2)
+                {
+                    Console.Write("{0} no es primo", Numero1);
+                }
+                else
+                {
+                    Console.Write("{0} es primo", Numero1);
+                }
+                Console.ReadLine();
+
+            }
+                
+
+            
+        }
+    }
+}
+
+10) La empresa Cursos Veloces desea contar con un programa que le permita calcular el 
+total dealumnos inscriptos en todos los cursos abiertos.
+El programa debe permitir el ingreso de la cantidad de alumnos anotados en cada curso 
+que serán numerados automáticamente y en forma consecutiva al correr el proceso, 
+comenzando por el curso 1 [ Contador ]
+Como la cantidad de cursos no se encuentra definida, el fin de proceso se producirá al 
+ingresar un 0 en la cantidad de alumnos inscriptos. [ Condición de Salida ]
+a) Construya un programa que realice el proceso deseado.
+b) Construya un programa con la misma función que el anterior, pero en el que para 
+finalizar elproceso se deba ingresar un número mayor a 99, y los cursos se numeren
+ comenzando por el curso 10.
+Nota: los cursos nunca tienen más de 99 alumnos.
+
+
+PARTE A:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Byte Estudiante;
+            Byte Curso;
+            Byte Contador =0;
+            Console.WriteLine("Por favor ingrese el número de curso comenzando por el curso 1");
+            Curso = Convert.ToByte(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese la cantidad de estudiantes inscriptos en el curso");
+            Estudiante = Convert.ToByte(Console.ReadLine());
+            Console.ReadKey();
+
+
+            do
+            {
+                if (Curso != 1 && Estudiante !=0)
+                {
+                    Console.WriteLine("El número de curso debe comenzar por el 1");
+                   
+                }
+                else if (Curso >= 1 && Estudiante != 0)
+                {
+                    
+                    Console.WriteLine("Por favor ingrese el número de curso");
+                    Curso = Convert.ToByte(Console.ReadLine());
+                    Console.WriteLine("Por favor ingrese la cantidad de estudiantes inscriptos en el curso");
+                    Estudiante = Convert.ToByte(Console.ReadLine());
+                    Contador ++;
+
+                }
+                
+            } while (Estudiante != 0);
+              
+
+        }
+    }
+}
+
+
+PARTE B:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Byte Estudiante;
+            Byte Curso;
+            Byte Contador =0;
+            Console.WriteLine("Por favor ingrese el número de curso comenzando por el curso 10");
+            Curso = Convert.ToByte(Console.ReadLine());
+            Console.WriteLine("Por favor ingrese la cantidad de estudiantes inscriptos en el curso");
+            Estudiante = Convert.ToByte(Console.ReadLine());
+            Console.ReadKey();
+
+
+            do
+            {
+                if (Curso != 10 || Estudiante > 99)
+                {
+                    Console.WriteLine("El número de curso debe comenzar por el 10");
+                    Console.ReadKey();
+                }
+                else if (Curso >= 10 && Estudiante <= 99)
+                {
+                    
+                    Console.WriteLine("Por favor ingrese el número de curso");
+                    Curso = Convert.ToByte(Console.ReadLine());
+                    Console.WriteLine("Por favor ingrese la cantidad de estudiantes inscriptos en el curso");
+                    Estudiante = Convert.ToByte(Console.ReadLine());
+                    Contador ++;
+
+                }
+                
+            } while (Estudiante > 99);
+              
+
+        }
+    }
+}
+
+
+11) Un club solicita una aplicación para determinar la cuota a pagar por los socios en
+ función de su edad.
+El programa debe pedir el ingreso de la edad del socio, no pudiendo aceptar números
+ negativos; luego debe desplegar un mensaje con el valor de la cuota según el siguiente 
+detalle:
+• Menores de 10 años: $5
+• Entre 10 y 17 años: $15
+• Desde 18 años: $22
+Finalmente se debe preguntar al usuario si desea realizar más consultas. 
+[ Condición de Salida ]
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Byte Edad;
+            String Consultas;
+
+            Console.WriteLine("Por favor escriba su edad");
+            Edad = Convert.ToByte(Console.ReadLine());
+
+            if (Edad < 10)
+            {
+                Console.WriteLine("La cuota es de $5");
+
+            }
+            else if (Edad >= 10 && Edad <= 17)
+            {
+                Console.WriteLine("La cuota es de $15");
+
+
+            else if (Edad >= 18)
+            {
+                Console.WriteLine("La cuota es de $22");
+
+            }
+
+            do
+            {
+
+                Console.WriteLine("¿Desea realizar más consultas? presione S/N");
+                Consultas = Console.ReadLine();
+
+
+            } while (Consultas == "S");
+
+
+            
+        }
+    }
+}
+
+
+12) Romina ahora quiere una mejora en el Sistema de registración de ventas. Quiere que
+ se codifique un programa que:
+• Vaya sumando las ventas efectuadas
+• Vaya sumando los montos de las ventas
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            float Ventas;
+            float Contador = 0;
+            float Acumulador = 0;
+            String Pregunta;
+
+            do
+            {
+                Console.WriteLine("Por favor escriba el monto de una venta");
+                Ventas = Convert.ToSingle(Console.ReadLine());
+                Console.WriteLine("¿Desea registrar otra venta? Por favor presione (S/N)");
+                Pregunta = Console.ReadLine();
+                Contador++;
+                Acumulador += Ventas;
+
+
+            } while (Pregunta == "S");
+
+            Console.WriteLine("La cantidad de ventas registradas es " + Contador + " y el monto total de ventas es " + Acumulador + ".");
+            Console.ReadKey();
+        }
+    }
+}
+
+13) Realice un programa que permita ingresar: Cantidad de materias aprobadas, Cantidad 
+de materias rendidas, Promedio, la Cantidad de Materias Faltantes y calcule el siguiente
+ ranking: 
+100 MatAprob 3 Prom 3 BonMatFalt
+MatRe nd
+MatAprob
+Ranking =  +  +  +
+Los bonificadores por materias faltantes son 1 – 90 pts, 2 – 60 pts, 3 – 45 pts, 4 – 30 
+pts, 5 – 25 pts, 6 – 20 pts, 7 – 15 pts, 8 – 10 pts y 9 –5 pts
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Byte Aprobadas;
+            Byte Rendidas;
+            float Promedio;
+            Byte Faltantes;
+            float Ranking;
+
+            Console.WriteLine("Por favor escriba la cantidad de materias aprobadas");
+            Aprobadas = Convert.ToByte(Console.ReadLine());
+            Console.WriteLine("Por favor escriba la cantidad de materias rendidas");
+            Rendidas = Convert.ToByte(Console.ReadLine());
+            Console.WriteLine("Por favor escriba el promedio");
+            Promedio = Convert.ToSingle(Console.ReadLine());
+            Console.WriteLine("Por favor escriba la cantidad de materias faltantes");
+            Faltantes = Convert.ToByte(Console.ReadLine());
+            
+
+            
+            
+
+            if (Faltantes == 1)
+            {
+                Ranking = ((Aprobadas / Rendidas) * 100 + Aprobadas * 3 + Promedio * 3 + 90);
+                Console.WriteLine("El ranking del estudiante es  " + Ranking);
+                Ranking = Convert.ToSingle(Console.ReadLine());
+                Console.ReadKey();
+            }
+            
+            else if (Faltantes == 2)
+            {
+                Ranking = ((Aprobadas / Rendidas) * 100 + Aprobadas * 3 + Promedio * 3 + 60);
+                Console.WriteLine("El ranking del estudiante es  " + Ranking);
+                Ranking = Convert.ToSingle(Console.ReadLine());
+                Console.ReadKey();
+            }
+            else if (Faltantes == 3)
+            {
+                Ranking = ((Aprobadas / Rendidas) * 100 + Aprobadas * 3 + Promedio * 3 + 45);
+                Console.WriteLine("El ranking del estudiante es  " + Ranking);
+                Ranking = Convert.ToSingle(Console.ReadLine());
+                Console.ReadKey();
+            }
+            else if (Faltantes == 4)
+            {
+                Ranking = ((Aprobadas / Rendidas) * 100 + Aprobadas * 3 + Promedio * 3 + 30);
+                Console.WriteLine("El ranking del estudiante es  " + Ranking);
+                Ranking = Convert.ToSingle(Console.ReadLine());
+                Console.ReadKey();
+            }
+            else if (Faltantes == 5)
+            {
+                Ranking = ((Aprobadas / Rendidas) * 100 + Aprobadas * 3 + Promedio * 3 + 25);
+                Console.WriteLine("El ranking del estudiante es  " + Ranking);
+                Ranking = Convert.ToSingle(Console.ReadLine());
+                Console.ReadKey();
+            }
+            else if (Faltantes == 6)
+            {
+                Ranking = ((Aprobadas / Rendidas) * 100 + Aprobadas * 3 + Promedio * 3 + 20);
+                Console.WriteLine("El ranking del estudiante es  " + Ranking);
+                Ranking = Convert.ToSingle(Console.ReadLine());
+                Console.ReadKey();
+            }
+            else if (Faltantes == 7)
+            {
+                Ranking = ((Aprobadas / Rendidas) * 100 + Aprobadas * 3 + Promedio * 3 + 15);
+                Console.WriteLine("El ranking del estudiante es  " + Ranking);
+                Ranking = Convert.ToSingle(Console.ReadLine());
+                Console.ReadKey();
+            }
+            else if (Faltantes == 8)
+            {
+                Ranking = ((Aprobadas / Rendidas) * 100 + Aprobadas * 3 + Promedio * 3 + 10);
+                Console.WriteLine("El ranking del estudiante es  " + Ranking);
+                Ranking = Convert.ToSingle(Console.ReadLine());
+                Console.ReadKey();
+            }
+            else if (Faltantes == 9)
+            {
+                Ranking = ((Aprobadas / Rendidas) * 100 + Aprobadas * 3 + Promedio * 3 + 5);
+                Console.WriteLine("El ranking del estudiante es  " + Ranking);
+                Ranking = Convert.ToSingle(Console.ReadLine());
+                Console.ReadKey();
+            }
+            else if (Faltantes > 9)
+            {
+                Ranking = ((Aprobadas / Rendidas) * 100 + Aprobadas * 3 + Promedio * 3);
+                Console.WriteLine("El ranking del estudiante es  " + Ranking);
+                Ranking = Convert.ToSingle(Console.ReadLine());
+                Console.ReadKey();
+            }
+
+                
+            
+        }
+    }
+}
+
+14) Un supermercado nos pide un programa para sus cajas registradoras, dándonos los 
+siguientes datos:
+
+• Al cliente que compra más de 10 productos le hace el 1,5% de descuento sobre el total 
+a pagar.
+• Al cliente que compra por más de $100 le hace el 3% de descuento sobre el total a pagar.
+• Al cliente que compra por más de $200 le hace el 5% de descuento sobre el total a pagar.
+• Al cliente que compra por más de $300 le hace el 7% de descuento sobre el total a pagar.
+
+Por último nos pide que en el ticket que se le entrega al cliente figuren los siguientes 
+datos:
+
+• Total a pagar.
+• Total del porcentaje de descuento efectuado.
+• Cantidad de productos comprados.
+
+Debemos tener en cuenta lo siguiente:
+
+• El precio de los productos nunca es mayor a $50.
+• Al ingresar el valor “-1” como precio se termina el programa.
+• Se le debe dar el mayor beneficio que al cliente le corresponda.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float Precio;
+            Byte Cantidad = 0;
+            float Total = 0;
+            string Condicion = "";
+            
+            Console.WriteLine("Por favor escriba el precio del producto");
+            Precio = Convert.ToSingle(Console.ReadLine());
+            Cantidad++;
+            Total += Precio;
+            
+            do
+            {
+
+                if (Precio <= 50)
+                {
+                    Console.WriteLine("Por favor escriba si desea registrar más compras (S/N)");
+                    Condicion = Console.ReadLine();
+                    Console.WriteLine("Por favor escriba el precio del producto comprado");
+                    Precio = Convert.ToSingle(Console.ReadLine());
+                    Cantidad++;
+                    Total += Precio;
+                }
+                else if (Precio > 50)
+                {
+                    Console.WriteLine("El precio ingresado está fuera de rango ya que debe ser menor o igual a $50");
+                    Precio = Convert.ToSingle(Console.ReadLine());
+                }
+                if (Cantidad < 10 && Total < 100)
+                {
+
+                    Console.WriteLine("El total a pagar por el cliente es " + Total  + ", el porcentaje de descuento efectuado es del 0% y la cantidad de productos comprados es " + Cantidad + ".");
+                }
+                else if (Cantidad > 10)
+                {
+
+                    Console.WriteLine("El total a pagar por el cliente es " + Total * 0.985 + ", el porcentaje de descuento efectuado es del 1,5% y la cantidad de productos comprados es " + Cantidad + ".");
+                }
+                else if (Total > 100)
+                {
+
+                    Console.WriteLine("El total a pagar por el cliente es " + Total * 0.97 + ", el porcentaje de descuento efectuado es del 3% y la cantidad de productos comprados es " + Cantidad + ".");
+                }
+                else if (Total > 200)
+                {
+
+                    Console.WriteLine("El total a pagar por el cliente es " + Total * 0.95 + ", el porcentaje de descuento efectuado es del 5% y la cantidad de productos comprados es " + Cantidad + ".");
+                }
+                else if (Total > 300)
+                {
+
+                    Console.WriteLine("El total a pagar por el cliente es " + Total * 0.93 + ", el porcentaje de descuento efectuado es del 7% y la cantidad de productos comprados es " + Cantidad + ".");
+                }
+                
+
+            } while (Condicion != "N" || Precio != -1);
+
+
+           
+        }
+
+
+    }
+}

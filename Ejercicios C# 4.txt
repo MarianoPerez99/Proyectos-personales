@@ -1,0 +1,893 @@
+Problema 1:
+
+Realizar un programa que guarde los 5 alumnos del curso en un vector de tipo string,
+ y luego imprima todos los datos por consola.
+Los datos son: Nombre.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Problema1Guia4
+    {
+        static void Main(string[] args)
+        {
+            Problema1Guia4 E = new Problema1Guia4();
+            E.SolucionProblema1Guia4();
+
+            Console.WriteLine("Presione ENTER para salir");
+            Console.ReadKey();
+        }
+
+        public void SolucionProblema1Guia4()
+        {
+            String[] Estudiantes = new String[5];
+            int Fila;
+            // Declaro una variable ACUMULADORA de tipo String llamada Acumulador.
+            String Acumulador = "";
+
+            // Declaro una estructura repetitiva FOR para recorrer el VECTOR.
+            for(Fila =0; Fila < Estudiantes.Length; Fila++)
+            {
+                Console.WriteLine("Escriba el nombre del estudiante" +(Fila+1));
+                Estudiantes[Fila] = Console.ReadLine();
+                Acumulador += "Nombre" + Estudiantes[Fila] + System.Environment.NewLine;
+            }
+            Console.WriteLine(Acumulador);
+            
+        }
+    }
+}
+
+Otra forma de resolver este problema:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Problema1Guia4
+    {
+        static void Main(string[] args)
+        {
+            Problema1Guia4 E = new Problema1Guia4();
+            E.SolucionProblema1Guia4();
+
+            Console.WriteLine("Presione ENTER para salir");
+            Console.ReadKey();
+        }
+
+        public void SolucionProblema1Guia4()
+        {
+            String[] Estudiantes = new String[5];
+            int Fila;
+            // Declaro una variable ACUMULADORA de tipo String llamada Acumulador.
+            String Acumulador = "";
+            int FilaUltima = Estudiantes.Length;
+
+            // Declaro una estructura repetitiva FOR para recorrer el VECTOR.
+            for(Fila =0; Fila < FilaUltima; Fila++)
+            {
+                Console.WriteLine("Escriba el nombre del estudiante" +(Fila+1));
+                Estudiantes[Fila] = Console.ReadLine();
+                Acumulador += "Nombre" + Estudiantes[Fila] + System.Environment.NewLine;
+            }
+            Console.WriteLine(Acumulador);
+            
+        }
+    }
+}
+
+Problema 2:
+
+Realizar un programa que valide (numérico y positivo) y guarde los sueldos de 8 operarios en un vector de tipo int, 
+y luego imprima el total de los sueldos por consola.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Problema2Guia4
+    {
+        static void Main(string[] args)
+        {
+            Problema2Guia4 E = new Problema2Guia4();
+            E.ResolucionProblema2Guia4();
+
+            Console.WriteLine("Presione enter para salir");
+            Console.ReadKey();
+        }
+
+        public void ResolucionProblema2Guia4()
+        {
+            // Declaro un vector de tipo int con 8 lugares y lo llamo Sueldos.
+            int[] Sueldos = new int[8];
+            int Fila;
+            // Declaro una variable de tipo int llamada Acumulador.
+            int Acumulador = 0;
+            // Declaro la variable de tipo String Ingresos para poder validar.
+            String Ingresos = "";
+            // Declaro la variable de tipo int Salida para guardar el dato validado.
+            int Salida = 0;
+            bool Flag;
+            int Sueldo = 0;
+            // Declaro una estructura repetitiva FOR para poder recorrer el vector.
+            for (Fila = 0; Fila < Sueldos.Length; Fila++)
+            {
+                // Inicio una estructura repetitiva do para poder hacer la validación.
+                do
+                {
+                    Console.WriteLine("Escriba el sueldo del operario" + (Fila + 1));
+                    Ingresos = Console.ReadLine();
+                    Flag = ValidarNumero(Ingresos, ref Salida);
+
+                } while (Flag == false);
+
+                Sueldos[Fila] = Salida;
+                Acumulador += Sueldos[Fila];
+            }
+            Console.WriteLine("Total de sueldos pagados "+Acumulador);
+        }
+        public bool ValidarNumero(String Ingresos, ref int Salida)
+        {
+            bool Flag = false;
+            if (!int.TryParse(Ingresos, out Salida))
+            {
+                Console.WriteLine("Usted debe ingresar un dato numérico");
+            }
+            else if (Salida <= 0)
+            {
+                Console.WriteLine("Usted debe ingresar un número mayor que cero");
+            }
+            else
+            {
+                Flag = true;
+            }
+            return Flag;
+
+
+        }
+
+
+    }
+}
+
+Problema 3:
+
+Realizar un programa que guarde los 5 alumnos del curso en una matriz de tipo string y 
+luego imprima todos los datos por consola. Validar el Nro de Registro, que sea numérico y positivo.
+Los datos son: Nombre, Nro Registro.
+
+ACLARACIÓN: No pide validar el nombre pero igual lo validé para practicar.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Problema3Guia4
+    {
+        static void Main(string[] args)
+        {
+            Problema3Guia4 E = new Problema3Guia4();
+            E.ResolucionDelProblema3Guia4();
+
+            Console.WriteLine("Presione enter para salir");
+            Console.ReadKey();
+        }
+
+        public void ResolucionDelProblema3Guia4()
+        {
+            // Declaro la matriz Estudiantes de tipo string con 5 elementos.
+            String[,] Estudiantes = new string[5,2];
+            // Declaro la variable de tipo String Nombre.
+            String Nombre = "";
+            //Declaro la variable de tipo String Registro para validar.
+            String Registro="";
+            // Declaro la variable de tipo int Salida para guardar el registro validado.
+            int Salida = 0;
+            // Declaro la variable de tipo int Fila.
+            int Fila;
+            // Declaro la variable Booleana.
+            bool Flag;
+            String Acumulador = "";
+            // Inicio estructura repetitiva FOR para ingresar los datos.
+            for (Fila=0; Fila<Estudiantes.GetLength(0); Fila++)
+            {
+                //Inicio una estructura repetitiva do para poder hacer la validacion.
+                do
+                {
+                    Console.WriteLine("Por favor escriba el nombre del estudiante" + (Fila + 1));
+                    Estudiantes[Fila, 0] = Console.ReadLine();
+                    Flag = ValidarNombre(Nombre);
+                    
+
+                }while (Flag == false);
+                Flag = false;
+                do
+                {
+                    Console.WriteLine("Por favor escriba el número de registro del estudiante" + (Fila + 1));
+                    Registro = Console.ReadLine();
+                    Flag = ValidarRegistro(Registro, ref Salida, Fila);
+
+                } while (Flag == false);
+
+                Estudiantes[Fila, 1] = Salida.ToString();
+                Acumulador += "Nombre" +Estudiantes[Fila,0]+ "-" +"Registro"+Estudiantes[Fila, 1]+System.Environment.NewLine;
+
+                
+
+            }
+            Console.WriteLine(Acumulador);
+
+        }
+        public bool ValidarNombre(String Nombre)
+        {
+            bool Flag = false;
+            if (!String.IsNullOrEmpty(Nombre))
+            {
+                Console.WriteLine("Usted debe ingresar un nombre");
+            }
+            else
+            {
+                Flag = true;
+            }
+            return Flag;
+        }
+        public bool ValidarRegistro(String Registro, ref int Salida, int Fila)
+        {
+           
+            bool Flag = false;
+            if(!int.TryParse(Registro, out Salida))
+            {
+                Console.WriteLine("Usted debe ingresar un dato numérico");
+            }
+            else if(Salida<=0)
+            {
+                Console.WriteLine("Usted debe ingresar un número positivo");
+            }
+            else
+            {
+                Flag = true;
+            }
+            return Flag;
+        }
+    }
+}
+
+Problema 4:
+
+Sobre la matriz del punto 3 se debe buscar un alumno por el Nro Registro, y mostrar sus datos.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Problema3Guia4
+    {
+        static void Main(string[] args)
+        {
+            Problema3Guia4 E = new Problema3Guia4();
+            E.ResolucionDelProblema3Guia4();
+
+            Console.WriteLine("Presione enter para salir");
+            Console.ReadKey();
+        }
+
+        public void ResolucionDelProblema3Guia4()
+        {
+            // Declaro la matriz Estudiantes de tipo string con 5 elementos.
+            String[,] Estudiantes = new string[5,2];
+            // Declaro la variable de tipo String Nombre.
+            String Nombre = "";
+            //Declaro la variable de tipo String Registro para validar.
+            String Registro="";
+            // Declaro la variable de tipo int Salida para guardar el registro validado.
+            int Salida = 0;
+            // Declaro la variable de tipo int Fila.
+            int Fila;
+            // Declaro la variable Booleana.
+            bool Flag;
+            String Acumulador = "";
+            // Como el Registro es de tipo int declaro la variable de tipo int Buscar.
+            int Buscar;
+            // Inicio estructura repetitiva FOR para ingresar los datos.
+            for (Fila=0; Fila<Estudiantes.GetLength(0); Fila++)
+            {
+                //Inicio una estructura repetitiva do para poder hacer la validacion.
+                do
+                {
+                    Console.WriteLine("Por favor escriba el nombre del estudiante" + (Fila + 1));
+                    Estudiantes[Fila, 0] = Console.ReadLine();
+                    Flag = ValidarNombre(Nombre);
+                    
+
+                }while (Flag == false);
+                Flag = false;
+                do
+                {
+                    Console.WriteLine("Por favor escriba el número de registro del estudiante" + (Fila + 1));
+                    Registro = Console.ReadLine();
+                    Flag = ValidarRegistro(Registro, ref Salida, Fila);
+
+                } while (Flag == false);
+
+                Estudiantes[Fila, 1] = Salida.ToString();
+                Acumulador += "Nombre" +Estudiantes[Fila,0]+ "-" +"Registro"+Estudiantes[Fila, 1]+System.Environment.NewLine;
+
+                
+
+            }
+            Console.WriteLine(Acumulador);
+            Console.WriteLine("Escriba el registro del estudiante buscado");
+            Registro = Console.ReadLine();
+            Buscar = BuscarEstudiante(Registro);
+            
+            
+            if (Buscar==-1)
+            {
+                Console.WriteLine("No existe el estudiante con número de registro" + Registro);
+            }
+            else
+            {
+                Console.WriteLine("Nombre " + Estudiantes[Buscar, 0] + " - " + "Registro "+ Estudiantes[Buscar,1]);
+            }
+        }
+        public bool ValidarNombre(String Nombre)
+        {
+            bool Flag = false;
+            if (!String.IsNullOrEmpty(Nombre))
+            {
+                Console.WriteLine("Usted debe ingresar un nombre");
+            }
+            else
+            {
+                Flag = true;
+            }
+            return Flag;
+        }
+        public bool ValidarRegistro(String Registro, ref int Salida, int Fila)
+        {
+           
+            bool Flag = false;
+            if(!int.TryParse(Registro, out Salida))
+            {
+                Console.WriteLine("Usted debe ingresar un dato numérico");
+            }
+            else if(Salida<=0)
+            {
+                Console.WriteLine("Usted debe ingresar un número positivo");
+            }
+            else
+            {
+                Flag = true;
+            }
+            return Flag;
+        }
+        public int BuscarEstudiante(String Registro)
+        {
+            String[,] Estudiantes = new string[5, 2];
+            int Buscar = -2;
+            int Fila;
+            // Inicio estructura repetitiva for para recorrer la matriz.
+            for(Fila = 0; Fila < Estudiantes.GetLength(0); Fila++)
+            {
+                // Inicio estructura condicional if.
+                if(Estudiantes[Fila,1]==Registro)
+                {
+                    Buscar = Fila;
+                }
+
+            }
+           return Buscar;
+        }
+        
+    }
+}
+
+Problema 5:
+
+Realice un programa que permita cargar varios nombres de personas en un vector de 5 registros. 
+Para cada nombre el programa verificará que no sea una cadena de longitud cero y que no se encuentre ya 
+cargado en el vector. Si no se encuentra lo agregará al vector.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Problema5Guia4
+    {
+        static void Main(string[] args)
+        {
+            Problema5Guia4 E = new Problema5Guia4();
+            E.ResolucionProblema5Guia4();
+
+            Console.WriteLine("Presione enter para salir");
+            Console.ReadLine();
+        }
+        public void ResolucionProblema5Guia4()
+        {
+            // Declaro el vector  PERSONAS de tipo String de 5 registros.
+            String[] Personas = new String[5];
+            // Declaro la variable de tipo String NOMBRES para poder hacer la validacion.
+            String Nombres;
+            // Declaro variable Booleana SeEncuentra para validar que no se repitan los nombres.
+            bool SeEncuentra = false;
+            // Inicio variable de tipo int Fila.
+            int Fila;
+            // Inicio variable de tipo String Acumulador para acumular los nombres validados en el vector.
+            String Acumulador = "";
+            // Inicio estructura repetitiva for para recorrer el vector.
+            for (Fila = 0; Fila < Personas.Length && !SeEncuentra; Fila++)
+            {
+                //Inicio estructura repetitiva do para pedir el ingreso de los nombres.
+                do
+                {
+                    Console.WriteLine("Por favor escriba el nombre de la persona" + (Fila + 1));
+                    Nombres = Console.ReadLine();
+                    // Inicio una función booleana ValidarNombres.
+                    SeEncuentra = ValidarNombres(Nombres, ref Fila);
+                } while (SeEncuentra == true);
+
+                Personas[Fila] = Nombres;
+                Acumulador += Personas[Fila];
+            }
+            Console.WriteLine("Los nombres ingresados son " + Acumulador);
+
+        }
+        public bool ValidarNombres(String Nombres, ref int Fila)
+        {
+            bool SeEncuentra = false;
+            // Inicio estructura condicional if para terminar la validación.
+            if (String.IsNullOrEmpty(Nombres))
+            {
+                Console.WriteLine("Debe ingresar un nombre no vacío");
+            }
+            else if (SeEncuentra)
+            {
+                // Si se encuentra en el vector no debe mostrar nada en consola.
+            }
+            else
+            {
+                // Si no se encuentra le ordeno al programa que lo ingrese al vector.
+               SeEncuentra=false;
+            }
+            return SeEncuentra;
+        }
+
+    }
+}
+
+Problema 6:
+
+Realizar un programa que guarde los sueldos de 8 operarios en un vector de tipo float, 
+que validarse que sean numéricos y positivos y luego imprima el total y promedio de los sueldos por consola.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Problema6Guia4
+    {
+        static void Main(string[] args)
+        {
+            Problema6Guia4 E = new Problema6Guia4();
+            E.ResolucionProblema6Guia4();
+
+            Console.WriteLine("Presione enter para salir");
+            Console.ReadLine();
+        }
+
+        public void ResolucionProblema6Guia4()
+        {
+
+            // Declaro el vector Sueldos de tipo float con 8 elementos.
+            float[] Sueldos = new float[8];
+            int Fila;
+            // Declaro una variable acumuladora de tipo int llamada ACUMULADOR.
+            float Acumulador = 0;
+            bool Flag;
+            // Declaro la variable Ingresos de tipo String para poder hacer la validacion.
+            String Ingresos = "";
+            float Salida = 0;
+        
+
+            // Declaro una estructura repetitiva for para poder recorrer el vector.
+            for (Fila = 0; Fila < Sueldos.Length; Fila++)
+            {
+                // Inicio una estructura repetitiva do para poder hacer la validacion.
+                do
+                {
+                    Console.WriteLine("Por favor escriba el sueldo del operario" + (Fila + 1));
+                    Ingresos = Console.ReadLine();
+                    Flag = ValidarSueldos(Ingresos, ref Salida);
+                } while (Flag == false);
+
+                Sueldos[Fila] = Salida;
+                Acumulador += Sueldos[Fila];
+
+            }
+            // Escribo el mensaje que debe mostrar en Consola.
+            Console.WriteLine("El total de sueldos es " + Acumulador + " y el promedio es " + Acumulador / Fila + ".");
+
+        }
+        public bool ValidarSueldos(String Ingresos, ref float Salida)
+        {
+            bool Flag = false;
+            if (!float.TryParse(Ingresos, out Salida))
+            {
+                Console.WriteLine("Usted debe ingresar un dato numérico");
+            }
+            else if (Salida <= 0)
+            {
+                Console.WriteLine("Usted debe ingresar un número positivo");
+            }
+            else
+            {
+                Flag = true;
+            }
+            return Flag;
+        }
+
+    }
+}
+
+Problema 7:
+
+Una empresa tiene dos turnos (mañana y tarde) en los que trabajan 8 empleados (4 por la mañana y 4 por la tarde).
+Desarrollar un programa que permita almacenar los sueldos de los empleados agrupados por turno.
+Imprimir los sueldos de cada turno por consola.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Problema7Guia4
+    {
+        static void Main(string[] args)
+        {
+            Problema7Guia4 E = new Problema7Guia4();
+            E.ResolucionProblema7Guia4();
+
+            Console.WriteLine("Presione enter para salir");
+            Console.ReadLine();
+        }
+        public void ResolucionProblema7Guia4()
+        {
+            // Declaro la matriz de tipo float SueldosMañana.
+            float[] SueldosMañana = new float[4];
+            // Declaro la matriz de tipo float SueldosTarde.
+            float[] SueldosTarde = new float[4];
+            // Declaro la variable de tipo String SueldosM para hacer la validación de sueldos turno mañana.
+            String SueldosM = "";
+            // Declaro la variable de tipo String SueldosM para hacer la validación de sueldos turno tarde.
+            String SueldosT = "";
+            // Declaro la variable de tipo booleano para hacer la validación.
+            bool FlagM;
+            bool FlagT;
+            // Declaro la variable de tipo int Fila.
+            int Fila;
+            // Inicio la variable de tipo float SalidaM para guardar los datos validados turno mañana.
+            float SalidaM = 0;
+            // Inicio la variable de tipo float SalidaT para guardar los datos validados turno tarde.
+            float SalidaT = 0;
+            //
+            String AcumuladorM = "";
+            //
+            String AcumuladorT = "";
+            // Inicio estructura repetitiva for para recorrer el vector SueldosMañana.
+            for (Fila = 0; Fila < SueldosMañana.Length; Fila++)
+            {
+                //Inicio estructura repetitiva do para pedir el ingreso de los 4 sueldos del turno mañana.
+                do
+                {
+                    Console.WriteLine("Por favor ingrese el sueldo del operario TURNO MAÑANA" + (Fila + 1));
+                    SueldosM = Console.ReadLine();
+                    // Declaro función booleana ValidarSueldosMañana.
+                    FlagM = ValidarSueldosMañana(SueldosM, ref SalidaM);
+                } while (FlagM == false);
+
+                SueldosMañana[Fila] = SalidaM;
+                AcumuladorM += SueldosMañana[Fila];
+
+                
+
+
+            }
+            // Muestro por consola los sueldos del turno mañana.
+            Console.WriteLine("Los sueldos del turno mañana son " + AcumuladorM);
+            // Inicio estructura repetitiva for para recorrer el vector SueldosTarde.
+            for (Fila = 0; Fila < SueldosTarde.Length; Fila++)
+            {
+                //Inicio estructura repetitiva do para pedir el ingreso de los 4 sueldos del turno tarde.
+                do
+                {
+                    Console.WriteLine("Por favor ingrese el sueldo del operario TURNO TARDE" + (Fila + 1));
+                    SueldosT = Console.ReadLine();
+                    // Declaro función booleana ValidarSueldosTarde.
+                    FlagT = ValidarSueldosTarde(SueldosT, ref SalidaT);
+                } while (FlagT == false);
+
+
+                SueldosTarde[Fila] = SalidaT;
+                AcumuladorT += SueldosTarde[Fila];
+
+
+               
+
+
+            }
+            // Muestro por consola los sueldos del turno tarde.
+            Console.WriteLine("Los sueldos del turno tarde son " + AcumuladorT);
+        }
+        public bool ValidarSueldosMañana(String SueldosM, ref float SalidaM)
+        {
+            bool FlagM = false;
+            // Inicio estructura condicional if para concluir la validación.
+            if (!float.TryParse(SueldosM, out SalidaM))
+            {
+                Console.WriteLine("Usted debe ingresar un dato numérico");
+            }
+            else if (SalidaM <= 0)
+            {
+                Console.WriteLine("Usted debe ingresar un número positivo");
+            }
+            else
+            {
+                FlagM = true;
+            }
+            return FlagM;
+        }
+        public bool ValidarSueldosTarde(String SueldosT, ref float SalidaT)
+        {
+            bool FlagT = false;
+            // Inicio estructura condicional if para concluir la validación.
+            if (!float.TryParse(SueldosT, out SalidaT))
+            {
+                Console.WriteLine("Usted debe ingresar un dato numérico");
+            }
+            else if (SalidaT <= 0)
+            {
+                Console.WriteLine("Usted debe ingresar un número positivo");
+            }
+            else
+            {
+                FlagT = true;
+            }
+            return FlagT;
+        }
+
+
+
+    }
+}
+
+Problema 8:
+
+Realice un programa que permita al profesor de un curso ingresar las notas de sus 30 alumnos 
+y calcular los promedios del curso. El profesor cuenta con 4 notas por cada alumno, dos notas de parciales teóricos
+ y dos de parciales prácticos. Al finalizar la carga el programa debe mostrar los siguientes datos:
+- promedio general del curso.
+- promedio de parciales prácticos.
+- promedio de parciales teóricos.
+- porcentaje de desaprobados (menos de 4), regularizados (entre 4 y 6) y promocionados (mayor o igual a 7).
+Nota: El profesor redondea los promedios hacia arriba en el caso de que los decimales sean mayores o iguales que 0.50.
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Problema8Guia4
+    {
+        static void Main(string[] args)
+        {
+            Problema8Guia4 E = new Problema8Guia4();
+            E.ResolucionProblema8Guia4();
+
+            Console.WriteLine("Presione enter para salir");
+            Console.ReadLine();
+        }
+        public void ResolucionProblema8Guia4()
+        {
+            // Declaro la matriz Notas de tipo float 30 filas y 4 columnas.
+            float[,] Notas = new float[30, 4];
+            // Declaro la variable de tipo String Teórico1 para validarla.
+            // Declaro la variable de tipo int Fila.
+            int Fila;
+            String Teorico1 = "";
+            // Declaro la variable de tipo String Teórico2 para validarla.
+            String Teorico2 = "";
+            // Declaro la variable de tipo String Práctico1 para validarla.
+            String Practico1 = "";
+            // Declaro la variable de tipo String Práctico2 para validarla.
+            String Practico2 = "";
+            //Declaro la variable de tipo float SalidaT1.
+            float SalidaT1 = 0;
+            //Declaro la variable de tipo float SalidaT2.
+            float SalidaT2 = 0;
+            //Declaro la variable de tipo float SalidaP1.
+            float SalidaP1 = 0;
+            //Declaro la variable de tipo float SalidaP2.
+            float SalidaP2 = 0;
+            // Declaro la variable booleana FlagT1.
+            bool FlagT1;
+            // Declaro la variable booleana FlagT2.
+            bool FlagT2;
+            // Declaro la variable booleana FlagP1.
+            bool FlagP1;
+            // Declaro la variable booleana FlagP2.
+            bool FlagP2;
+            // Declaro una variable de tipo float Acumulador para el promedio gral. del curso.
+            float Acumulador = 0;
+            // Declaro una variable de tipo float AcumuladorTeorico para el promedio teórico.
+            float AcumuladorTeorico = 0;
+            // Declaro una variable de tipo float AcumuladorPractico para el promedio práctico.
+            float AcumuladorPractico = 0;
+            // Declaro una estructura repetitiva for para recorrer la matriz.
+            for (Fila=0;Fila<Notas.GetLength(0); Fila++)
+            {
+                //Inicio estructura repetitiva do para validar la primer nota TEÓRICA.
+                do
+                {
+                    Console.WriteLine("Escriba la nota del primer parcial TEÓRICO del estudiante" + (Fila + 1));
+                    Teorico1 = Console.ReadLine();
+                    // Inicio la funcion ValidarTeorico1.
+                    FlagT1 = ValidarTeorico1(Teorico1, ref SalidaT1);
+                    Acumulador += SalidaT1;
+                } while (FlagT1 == false);
+
+                //Inicio estructura repetitiva do para validar la segunda nota TEÓRICA.
+                do
+                {
+                    Console.WriteLine("Escriba la nota del segundo parcial TEÓRICO del estudiante" + (Fila + 1));
+                    Teorico1 = Console.ReadLine();
+                    // Inicio la funcion ValidarTeorico2.
+                    FlagT2 = ValidarTeorico2(Teorico2, ref SalidaT2);
+                    Acumulador += SalidaT2;
+                } while (FlagT2 == false);
+
+                //Inicio estructura repetitiva do para validar la primer nota PRÁCTICA.
+                do
+                {
+                    Console.WriteLine("Escriba la nota del primer parcial PRÁCTICO del estudiante" + (Fila + 1));
+                    Teorico1 = Console.ReadLine();
+                    // Inicio la funcion ValidarPractico1.
+                    FlagP1 = ValidarPractico1(Practico1, ref SalidaP1);
+                    Acumulador += SalidaP1;
+                } while (FlagP1 == false);
+
+                //Inicio estructura repetitiva do para validar la segunda nota PRÁCTICA.
+                do
+                {
+                    Console.WriteLine("Escriba la nota del segundo parcial PRÁCTICO del estudiante" + (Fila + 1));
+                    Teorico1 = Console.ReadLine();
+                    // Inicio la funcion ValidarPractico2.
+                    FlagP2 = ValidarPractico2(Practico2, ref SalidaP2);
+                    Acumulador += SalidaP2;
+                } while (FlagP2 == false);
+
+                
+                String Mensaje="";
+                Mensaje = "Promedio gral. del curso:" +Acumulador/30+", Promedio teórico: "+AcumuladorTeorico/30+", Promedio práctico: "+AcumuladorPractico/30+".";
+                
+            }
+            // Mensaje en pantalla:
+
+            Console.WriteLine("+Mensaje+");
+            
+        }
+        public bool ValidarTeorico1(String Teorico1, ref float SalidaT1)
+        {
+            bool FlagT1 = false;
+            // Inicio estructura condicional if para concluir la validación de la PRIMER NOTA TEÓRICA.
+            if (!float.TryParse(Teorico1, out SalidaT1))
+            {
+                Console.WriteLine("Usted debe ingresar un dato numérico");
+            }
+            else if (SalidaT1 < 1)
+            {
+                // Vamos a suponer que EN TIEMPOS MODERNOS el CERO no existe... ¿se entiende?
+                Console.WriteLine("Usted debe ingresar un número mayor o igual a 1");
+            }
+            else
+            {
+                FlagT1 = true;
+            }
+            return FlagT1;
+        }
+        public bool ValidarTeorico2(String Teorico2, ref float SalidaT2)
+        {
+            bool FlagT2 = false;
+            // Inicio estructura condicional if para concluir la validación de la PRIMER NOTA TEÓRICA.
+            if (!float.TryParse(Teorico2, out SalidaT2))
+            {
+                Console.WriteLine("Usted debe ingresar un dato numérico");
+            }
+            else if (SalidaT2 < 1)
+            {
+                // Vamos a suponer que EN TIEMPOS MODERNOS el CERO no existe... ¿se entiende?
+                Console.WriteLine("Usted debe ingresar un número mayor o igual a 1");
+            }
+            else
+            {
+                FlagT2 = true;
+            }
+            return FlagT2;
+        }
+        public bool ValidarPractico1(String Practico1, ref float SalidaP1)
+        {
+            bool FlagP1 = false;
+            // Inicio estructura condicional if para concluir la validación de la PRIMER NOTA TEÓRICA.
+            if (!float.TryParse(Practico1, out SalidaP1))
+            {
+                Console.WriteLine("Usted debe ingresar un dato numérico");
+            }
+            else if (SalidaP1 < 1)
+            {
+                // Vamos a suponer que EN TIEMPOS MODERNOS el CERO no existe... ¿se entiende?
+                Console.WriteLine("Usted debe ingresar un número mayor o igual a 1");
+            }
+            else
+            {
+                FlagP1 = true;
+            }
+            return FlagP1;
+        }
+        public bool ValidarPractico2(String Practico2, ref float SalidaP2)
+        {
+            bool FlagP2= false;
+            // Inicio estructura condicional if para concluir la validación de la PRIMER NOTA TEÓRICA.
+            if (!float.TryParse(Practico2, out SalidaP2))
+            {
+                Console.WriteLine("Usted debe ingresar un dato numérico");
+            }
+            else if (SalidaP2 < 1)
+            {
+                // Vamos a suponer que EN TIEMPOS MODERNOS el CERO no existe... ¿se entiende?
+                Console.WriteLine("Usted debe ingresar un número mayor o igual a 1");
+            }
+            else
+            {
+                FlagP2 = true;
+            }
+            return FlagP2;
+        }
+
+
+    }
+}
